@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Delhi Grind – Where Coffee Meets Culture</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --dark:#1A120B;
+  --brown:#3E2723;
+  --coffee:#6F4E37;
+  --cream:#F4E4C1;
+  --burnt:#D2691E;
+  --sage:#8B9467;
+  --white:#FFFEF7;
+  --gold:#C9A961;
+  --charcoal:#2C2416;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--white);
+  color:var(--dark);
+  overflow-x:hidden;
+  line-height:1.7;
+}
+
+/* CUSTOM CURSOR */
+body{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%23D2691E"/></svg>') 12 12, auto}
+a,button{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="6" fill="%236F4E37"/></svg>') 16 16, pointer}
+
+/* NAVIGATION */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+  background:rgba(26,18,11,.92);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid rgba(201,169,97,.2);
+}
+.nav-container{
+  max-width:1400px;
+  margin:0 auto;
+  padding:1.2rem 3rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo-wrapper{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  cursor:pointer;
+}
+.logo-icon{
+  width:50px;
+  height:50px;
+  background:linear-gradient(135deg,var(--burnt),var(--gold));
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:1.5rem;
+  color:white;
+  box-shadow:0 4px 20px rgba(210,105,30,.4);
+  transition:all .3s ease;
+}
+.logo-wrapper:hover .logo-icon{
+  transform:rotate(360deg) scale(1.1);
+  box-shadow:0 6px 30px rgba(210,105,30,.6);
+}
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+.logo-main{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;
+  letter-spacing:2px;
+  color:var(--cream);
+}
+.logo-sub{
+  font-size:.7rem;
+  letter-spacing:3px;
+  color:var(--gold);
+  text-transform:uppercase;
+  font-weight:300;
+}
+.nav-menu{
+  display:flex;
+  gap:3rem;
+  list-style:none;
+}
+.nav-menu a{
+  color:var(--cream);
+  text-decoration:none;
+  font-weight:400;
+  font-size:.95rem;
+  position:relative;
+  letter-spacing:.5px;
+  transition:color .3s ease;
+}
+.nav-menu a::before{
+  content:'';
+  position:absolute;
+  bottom:-8px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--burnt),var(--gold));
+  transition:width .3s ease;
+}
+.nav-menu a:hover{color:var(--gold)}
+.nav-menu a:hover::before{width:100%}
+.menu-toggle{display:none}
+
+/* HERO */
+.hero{
+  margin-top:90px;
+  min-height:100vh;
+  background:linear-gradient(165deg,var(--dark) 0%,var(--charcoal) 50%,var(--brown) 100%);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:20%;
+  right:-10%;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,rgba(210,105,30,.15),transparent 70%);
+  border-radius:50%;
+  animation:pulse 8s ease-in-out infinite;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  bottom:10%;
+  left:-5%;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,rgba(139,148,103,.1),transparent 70%);
+  border-radius:50%;
+  animation:pulse 10s ease-in-out infinite reverse;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1) translate(0,0)}
+  50%{transform:scale(1.2) translate(20px,-20px)}
+}
+.hero-grid{
+  max-width:1400px;
+  margin:0 auto;
+  padding:5rem 3rem;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:5rem;
+  align-items:center;
+  position:relative;
+  z-index:1;
+}
+.hero-content h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5.5rem;
+  line-height:1;
+  color:var(--white);
+  margin-bottom:1.5rem;
+  font-weight:700;
+  animation:fadeInUp 1s ease;
+}
+.hero-content .highlight{
+  background:linear-gradient(90deg,var(--burnt),var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:inline-block;
+}
+.hero-tagline{
+  font-size:1.4rem;
+  color:var(--cream);
+  margin-bottom:2.5rem;
+  font-weight:300;
+  letter-spacing:.5px;
+  animation:fadeInUp 1s ease .2s backwards;
+}
+.hero-features{
+  display:flex;
+  gap:2rem;
+  margin-bottom:3rem;
+  animation:fadeInUp 1s ease .4s backwards;
+}
+.feature-badge{
+  padding:.6rem 1.2rem;
+  background:rgba(244,228,193,.1);
+  border:1px solid rgba(201,169,97,.3);
+  border-radius:30px;
+  font-size:.85rem;
+  color:var(--gold);
+  font-weight:400;
+  letter-spacing:.5px;
+}
+.hero-cta{
+  display:flex;
+  gap:1.5rem;
+  animation:fadeInUp 1s ease .6s backwards;
+}
+.btn-primary{
+  padding:1.2rem 3rem;
+  background:linear-gradient(135deg,var(--burnt),var(--gold));
+  color:white;
+  text-decoration:none;
+  border-radius:50px;
+  font-weight:600;
+  font-size:1.05rem;
+  letter-spacing:.5px;
+  box-shadow:0 10px 40px rgba(210,105,30,.4);
+  transition:all .4s ease;
+  border:none;
+}
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 50px rgba(210,105,30,.6);
+}
+.btn-secondary{
+  padding:1.2rem 3rem;
+  background:transparent;
+  color:var(--cream);
+  text-decoration:none;
+  border-radius:50px;
+  font-weight:600;
+  font-size:1.05rem;
+  border:2px solid var(--cream);
+  transition:all .3s ease;
+}
+.btn-secondary:hover{
+  background:var(--cream);
+  color:var(--dark);
+}
+.hero-visual{
+  position:relative;
+  animation:fadeInUp 1s ease .3s backwards;
+}
+.coffee-display{
+  width:100%;
+  max-width:500px;
+  aspect-ratio:1;
+  background:linear-gradient(135deg,rgba(244,228,193,.1),rgba(201,169,97,.1));
+  border-radius:50%;
+  position:relative;
+  border:3px solid rgba(201,169,97,.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.3);
+}
+.coffee-display::before{
+  content:'☕';
+  font-size:12rem;
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+}
+
+/* STATS SECTION */
+.stats{
+  padding:4rem 3rem;
+  background:var(--cream);
+  border-top:3px solid var(--gold);
+  border-bottom:3px solid var(--gold);
+}
+.stats-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:3rem;
+  text-align:center;
+}
+.stat-item{
+  animation:fadeInUp 1s ease backwards;
+}
+.stat-number{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:4rem;
+  background:linear-gradient(135deg,var(--burnt),var(--coffee));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1;
+  margin-bottom:.5rem;
+}
+.stat-label{
+  font-size:1rem;
+  color:var(--brown);
+  font-weight:300;
+  letter-spacing:1px;
+}
+
+/* ORIGIN STORY */
+.origin{
+  padding:8rem 3rem;
+  background:var(--white);
+  position:relative;
+}
+.origin-container{
+  max-width:1300px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6rem;
+  align-items:center;
+}
+.origin-image-stack{
+  position:relative;
+  height:600px;
+}
+.origin-img{
+  position:absolute;
+  width:380px;
+  height:280px;
+  object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  border:5px solid white;
+  transition:transform .4s ease;
+}
+.origin-img:nth-child(1){
+  top:0;
+  left:0;
+  z-index:3;
+  transform:rotate(-5deg);
+}
+.origin-img:nth-child(2){
+  top:120px;
+  right:0;
+  z-index:2;
+  transform:rotate(8deg);
+}
+.origin-img:nth-child(3){
+  bottom:0;
+  left:50px;
+  z-index:1;
+  transform:rotate(-3deg);
+}
+.origin-img:hover{
+  transform:rotate(0deg) scale(1.05);
+  z-index:10;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.5rem;
+  color:var(--dark);
+  margin-bottom:2rem;
+  font-weight:700;
+  line-height:1.1;
+}
+.section-subtitle{
+  font-size:1.3rem;
+  color:var(--burnt);
+  margin-bottom:2rem;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.origin-text p{
+  font-size:1.1rem;
+  color:var(--brown);
+  margin-bottom:1.5rem;
+  line-height:1.9;
+}
+.origin-features{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+  margin-top:3rem;
+}
+.origin-feature{
+  padding:1.5rem;
+  background:linear-gradient(135deg,rgba(244,228,193,.3),rgba(201,169,97,.1));
+  border-radius:15px;
+  border-left:4px solid var(--burnt);
+}
+.origin-feature h4{
+  font-size:1.1rem;
+  color:var(--dark);
+  margin-bottom:.5rem;
+}
+.origin-feature p{
+  font-size:.95rem;
+  color:var(--coffee);
+  margin-bottom:0;
+}
+
+/* MENU */
+.menu{
+  padding:8rem 3rem;
+  background:linear-gradient(180deg,var(--dark),var(--charcoal));
+  position:relative;
+}
+.menu::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:200px;
+  background:linear-gradient(to bottom,var(--white),transparent);
+}
+.menu-header{
+  text-align:center;
+  margin-bottom:5rem;
+  position:relative;
+  z-index:1;
+}
+.menu-header .section-title{
+  color:var(--cream);
+  font-size:4rem;
+}
+.menu-header .section-subtitle{
+  color:var(--gold);
+}
+.menu-grid{
+  max-width:1400px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:2.5rem;
+}
+.menu-card{
+  background:rgba(244,228,193,.05);
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  overflow:hidden;
+  border:1px solid rgba(201,169,97,.2);
+  transition:all .4s ease;
+  position:relative;
+}
+.menu-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--burnt),var(--gold));
+  transform:scaleX(0);
+  transition:transform .4s ease;
+}
+.menu-card:hover::before{transform:scaleX(1)}
+.menu-card:hover{
+  transform:translateY(-10px);
+  border-color:var(--gold);
+  box-shadow:0 25px 60px rgba(210,105,30,.3);
+}
+.menu-img-wrapper{
+  height:240px;
+  overflow:hidden;
+  position:relative;
+}
+.menu-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s ease;
+}
+.menu-card:hover img{
+  transform:scale(1.15) rotate(2deg);
+}
+.menu-badge{
+  position:absolute;
+  top:15px;
+  right:15px;
+  padding:.5rem 1rem;
+  background:rgba(26,18,11,.9);
+  color:var(--gold);
+  border-radius:20px;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.5px;
+  backdrop-filter:blur(10px);
+}
+.menu-info{
+  padding:2rem;
+}
+.menu-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;
+  color:var(--cream);
+  margin-bottom:.8rem;
+  font-weight:600;
+}
+.menu-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;
+  color:var(--gold);
+  margin-bottom:1rem;
+  letter-spacing:1px;
+}
+.menu-desc{
+  color:rgba(244,228,193,.8);
+  font-size:.95rem;
+  line-height:1.7;
+}
+
+/* TESTIMONIALS */
+.testimonials{
+  padding:8rem 3rem;
+  background:var(--cream);
+  position:relative;
+}
+.testimonial-header{
+  text-align:center;
+  margin-bottom:5rem;
+}
+.testimonial-grid{
+  max-width:1300px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3rem;
+}
+.testimonial-card{
+  background:white;
+  padding:3rem;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+  position:relative;
+  transition:all .4s ease;
+}
+.testimonial-card::before{
+  content:'"';
+  position:absolute;
+  top:-20px;
+  left:30px;
+  font-size:8rem;
+  font-family:'Cormorant Garamond',serif;
+  color:var(--burnt);
+  opacity:.2;
+  line-height:1;
+}
+.testimonial-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 60px rgba(0,0,0,.15);
+}
+.stars{
+  color:var(--gold);
+  font-size:1.2rem;
+  margin-bottom:1.5rem;
+}
+.testimonial-text{
+  font-size:1.05rem;
+  color:var(--brown);
+  line-height:1.8;
+  margin-bottom:2rem;
+  font-style:italic;
+}
+.testimonial-author{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.author-avatar{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--burnt),var(--gold));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:white;
+  font-size:1.2rem;
+}
+.author-info h5{
+  font-size:1.1rem;
+  color:var(--dark);
+  margin-bottom:.2rem;
+}
+.author-info p{
+  font-size:.85rem;
+  color:var(--coffee);
+}
+
+/* GALLERY */
+.gallery{
+  padding:8rem 3rem;
+  background:var(--white);
+}
+.gallery-header{
+  text-align:center;
+  margin-bottom:5rem;
+}
+.gallery-masonry{
+  max-width:1400px;
+  margin:0 auto;
+  column-count:4;
+  column-gap:1.5rem;
+}
+.gallery-item{
+  break-inside:avoid;
+  margin-bottom:1.5rem;
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  transition:all .4s ease;
+}
+.gallery-item:hover{
+  transform:scale(1.03);
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+.gallery-item img{
+  width:100%;
+  display:block;
+  transition:transform .6s ease;
+}
+.gallery-item:hover img{
+  transform:scale(1.1);
+}
+.gallery-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(26,18,11,.8),transparent);
+  opacity:0;
+  transition:opacity .4s ease;
+  display:flex;
+  align-items:flex-end;
+  padding:1.5rem;
+}
+.gallery-item:hover .gallery-overlay{
+  opacity:1;
+}
+.gallery-caption{
+  color:white;
+  font-weight:600;
+  font-size:1rem;
+}
+
+/* NEWSLETTER */
+.newsletter{
+  padding:6rem 3rem;
+  background:linear-gradient(135deg,var(--dark),var(--brown));
+  position:relative;
+  overflow:hidden;
+}
+.newsletter::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  right:-20%;
+  width:800px;
+  height:800px;
+  background:radial-gradient(circle,rgba(210,105,30,.15),transparent 70%);
+  border-radius:50%;
+}
+.newsletter-content{
+  max-width:700px;
+  margin:0 auto;
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
+.newsletter h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.5rem;
+  color:var(--cream);
+  margin-bottom:1.5rem;
+  font-weight:700;
+}
+.newsletter p{
+  font-size:1.2rem;
+  color:rgba(244,228,193,.8);
+  margin-bottom:3rem;
+}
+.newsletter-form{
+  display:flex;
+  gap:1rem;
+  max-width:600px;
+  margin:0 auto;
+}
+.newsletter-form input{
+  flex:1;
+  padding:1.3rem 2rem;
+  border-radius:50px;
+  border:2px solid rgba(201,169,97,.3);
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(10px);
+  color:var(--cream);
+  font-size:1rem;
+  font-family:'Outfit',sans-serif;
+}
+.newsletter-form input::placeholder{
+  color:rgba(244,228,193,.5);
+}
+.newsletter-form input:focus{
+  outline:none;
+  border-color:var(--gold);
+}
+.newsletter-form button{
+  padding:1.3rem 3rem;
+  background:linear-gradient(135deg,var(--burnt),var(--gold));
+  color:white;
+  border:none;
+  border-radius:50px;
+  font-weight:600;
+  font-size:1rem;
+  transition:all .3s ease;
+  white-space:nowrap;
+}
+.newsletter-form button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(210,105,30,.4);
+}
+
+/* CONTACT */
+.contact{
+  padding:8rem 3rem;
+  background:var(--white);
+}
+.contact-grid{
+  max-width:1300px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:6rem;
+}
+.contact-info h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.5rem;
+  color:var(--dark);
+  margin-bottom:2rem;
+  font-weight:700;
+}
+.contact-details{
+  margin-bottom:3rem;
+}
+.detail-item{
+  display:flex;
+  align-items:flex-start;
+  gap:1.5rem;
+  margin-bottom:2rem;
+}
+.detail-icon{
+  width:50px;
+  height:50px;
+  background:linear-gradient(135deg,var(--burnt),var(--gold));
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  flex-shrink:0;
+}
+.detail-content h4{
+  font-size:1rem;
+  color:var(--burnt);
+  margin-bottom:.3rem;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.detail-content p{
+  font-size:1.05rem;
+  color:var(--brown);
+  line-height:1.7;
+}
+.social-grid{
+  display:flex;
+  gap:1rem;
+}
+.social-link{
+  width:55px;
+  height:55px;
+  background:linear-gradient(135deg,var(--burnt),var(--gold));
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-decoration:none;
+  font-size:1.5rem;
+  transition:all .3s ease;
+}
+.social-link:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(210,105,30,.4);
+}
+.contact-form{
+  background:linear-gradient(135deg,rgba(244,228,193,.2),rgba(201,169,97,.1));
+  padding:3.5rem;
+  border-radius:30px;
+  border:2px solid rgba(201,169,97,.2);
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+  margin-bottom:1.5rem;
+}
+.form-group{
+  margin-bottom:1.5rem;
+}
+.form-group.full{
+  grid-column:1/-1;
+}
+.form-group label{
+  display:block;
+  margin-bottom:.7rem;
+  color:var(--dark);
+  font-weight:600;
+  font-size:.95rem;
+}
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:1.2rem 1.5rem;
+  border-radius:15px;
+  border:2px solid rgba(201,169,97,.3);
+  background:white;
+  font-family:'Outfit',sans-serif;
+  font-size:1rem;
+  color:var(--dark);
+  transition:border-color .3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--burnt);
+}
+.form-group textarea{
+  resize:vertical;
+  min-height:150px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:var(--cream);
+  padding:4rem 3rem 2rem;
+}
+.footer-grid{
+  max-width:1400px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:4rem;
+  margin-bottom:3rem;
+}
+.footer-brand h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;
+  letter-spacing:2px;
+  margin-bottom:1rem;
+  color:var(--gold);
+}
+.footer-brand p{
+  color:rgba(244,228,193,.7);
+  line-height:1.8;
+  margin-bottom:1.5rem;
+}
+.footer-column h4{
+  font-size:1.1rem;
+  margin-bottom:1.5rem;
+  color:var(--gold);
+  font-weight:600;
+}
+.footer-column ul{
+  list-style:none;
+}
+.footer-column ul li{
+  margin-bottom:.8rem;
+}
+.footer-column ul li a{
+  color:rgba(244,228,193,.8);
+  text-decoration:none;
+  transition:color .3s ease;
+}
+.footer-column ul li a:hover{
+  color:var(--gold);
+}
+.footer-bottom{
+  border-top:1px solid rgba(201,169,97,.2);
+  padding-top:2rem;
+  text-align:center;
+  color:rgba(244,228,193,.6);
+}
+
+/* SCROLL ANIMATIONS */
+.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:3rem}
+  .origin-container{grid-template-columns:1fr}
+  .origin-image-stack{height:400px}
+  .origin-img{width:300px;height:220px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .testimonial-grid{grid-template-columns:1fr}
+  .gallery-masonry{column-count:2}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .nav-menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--dark);
+    flex-direction:column;
+    padding:2rem;
+    gap:1.5rem;
+  }
+  .nav-menu.active{display:flex}
+  .menu-toggle{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+  }
+  .menu-toggle span{
+    width:25px;
+    height:3px;
+    background:var(--cream);
+    border-radius:2px;
+    transition:all .3s ease;
+  }
+  .hero-content h1{font-size:3rem}
+  .section-title{font-size:2.5rem}
+  .menu-grid{grid-template-columns:1fr}
+  .gallery-masonry{column-count:1}
+  .newsletter-form{flex-direction:column}
+  .form-grid{grid-template-columns:1fr}
+  .origin-features{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="logo-wrapper">
+      <div class="logo-icon">DG</div>
+      <div class="logo-text">
+        <div class="logo-main">THE DELHI GRIND</div>
+        <div class="logo-sub">Coffee & Culture</div>
+      </div>
+    </div>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#origin">Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <h1>Where <span class="highlight">Coffee</span> Meets <span class="highlight">Culture</span></h1>
+      <p class="hero-tagline">From the misty hills of Chikmagalur to your cup in Delhi — experience artisanal coffee like never before.</p>
+      <div class="hero-features">
+        <div class="feature-badge">☕ Farm to Cup</div>
+        <div class="feature-badge">🌿 Single Origin</div>
+        <div class="feature-badge">✨ Small Batch</div>
+      </div>
+      <div class="hero-cta">
+        <a href="#menu" class="btn-primary">Explore Menu</a>
+        <a href="#contact" class="btn-secondary">Visit Us</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="coffee-display"></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">5000+</div>
+      <div class="stat-label">HAPPY CUSTOMERS</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">SIGNATURE BLENDS</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4.8</div>
+      <div class="stat-label">GOOGLE RATING</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">ARABICA BEANS</div>
+    </div>
+  </div>
+</section>
+
+<section class="origin fade-in" id="origin">
+  <div class="origin-container">
+    <div class="origin-image-stack">
+      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e" alt="Coffee plantation" class="origin-img">
+      <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31" alt="Coffee roasting" class="origin-img">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Coffee beans" class="origin-img">
+    </div>
+    <div class="origin-text">
+      <h2 class="section-title">From Bean to Bharat</h2>
+      <p class="section-subtitle">Our Journey of Passion & Precision</p>
+      <p>In the heart of Delhi's beautiful chaos, we discovered something missing — a place where world-class coffee meets authentic Indian warmth. The Delhi Grind was born from this vision.</p>
+      <p>We source our beans directly from sustainable farms in Chikmagalur's misty highlands, where generations of farmers have perfected the art of coffee cultivation. Each batch is roasted in small quantities right here in Delhi, ensuring maximum freshness and flavor.</p>
+      <div class="origin-features">
+        <div class="origin-feature">
+          <h4>🌱 Sustainable Sourcing</h4>
+          <p>Direct trade with farmers, ensuring fair prices and ethical practices</p>
+        </div>
+        <div class="origin-feature">
+          <h4>🔥 Artisan Roasting</h4>
+          <p>Small-batch roasting for optimal flavor and freshness</p>
+        </div>
+        <div class="origin-feature">
+          <h4>💚 Eco-Friendly</h4>
+          <p>Compostable packaging and zero-waste initiatives</p>
+        </div>
+        <div class="origin-feature">
+          <h4>❤️ Community First</h4>
+          <p>Supporting local artists, musicians, and entrepreneurs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu fade-in" id="menu">
+  <div class="menu-header">
+    <h2 class="section-title">Signature Selections</h2>
+    <p class="section-subtitle">Handcrafted with Love, Served with Soul</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589" alt="Old Delhi Mocha">
+        <div class="menu-badge">BESTSELLER</div>
+      </div>
+      <div class="menu-info">
+        <h3 class="menu-title">The Old Delhi Mocha</h3>
+        <div class="menu-price">₹320</div>
+        <p class="menu-desc">Dark chocolate, cardamom, and cinnamon. A rich tribute to Chandni Chowk's vibrant spice markets.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7" alt="Monsoon Cold Brew">
+        <div class="menu-badge">SEASONAL</div>
+      </div>
+      <div class="menu-info">
+        <h3 class="menu-title">Monsoon Cold Brew</h3>
+        <div class="menu-price">₹280</div>
+        <p class="menu-desc">18-hour slow-steeped perfection. Smooth, low-acid, and incredibly bold.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Dilli-ccino">
+      </div>
+      <div class="menu-info">
+        <h3 class="menu-title">Dilli-ccino</h3>
+        <div class="menu-price">₹250</div>
+        <p class="menu-desc">Classic cappuccino with India Gate cocoa art. Perfectly balanced and Instagram-worthy.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1619221882826-23f8f2d09364" alt="Paneer Tikka Focaccia">
+        <div class="menu-badge">CHEF'S PICK</div>
+      </div>
+      <div class="menu-info">
+        <h3 class="menu-title">Paneer Tikka Focaccia</h3>
+        <div class="menu-price">₹350</div>
+        <p class="menu-desc">Tandoori-spiced grilled paneer on house-made Italian bread. East meets West deliciously.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" alt="The Hustle Bagel">
+      </div>
+      <div class="menu-info">
+        <h3 class="menu-title">The 'Hustle' Bagel</h3>
+        <div class="menu-price">₹380</div>
+        <p class="menu-desc">Cream cheese, fresh avocado, chili flakes, and microgreens. Fuel for your busy day.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1563822249366-3effd6c01cb6" alt="Masala Chai Latte">
+        <div class="menu-badge">LOCAL FAVORITE</div>
+      </div>
+      <div class="menu-info">
+        <h3 class="menu-title">Masala Chai Latte</h3>
+        <div class="menu-price">₹220</div>
+        <p class="menu-desc">The perfect break from coffee. Robust spices with a creamy, comforting finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials fade-in" id="testimonials">
+  <div class="testimonial-header">
+    <h2 class="section-title">What Delhi Says</h2>
+    <p class="section-subtitle">Stories from Our Coffee Community</p>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">The best coffee in Delhi, hands down! The ambiance is perfect for work or catching up with friends. The Monsoon Cold Brew is my addiction!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AR</div>
+        <div class="author-info">
+          <h5>Arjun Reddy</h5>
+          <p>Tech Entrepreneur</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">As a coffee snob, I'm impressed! They really know their beans. The baristas are knowledgeable and passionate. Finally, a place that gets specialty coffee right.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">PS</div>
+        <div class="author-info">
+          <h5>Priya Sharma</h5>
+          <p>Marketing Director</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Love the vibe here! It's become my second office. Great WiFi, comfortable seating, and the Old Delhi Mocha is absolutely divine. Worth every rupee!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">NK</div>
+        <div class="author-info">
+          <h5>Nikhil Kapoor</h5>
+          <p>Freelance Designer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery fade-in" id="gallery">
+  <div class="gallery-header">
+    <h2 class="section-title">Gallery & Vibes</h2>
+    <p class="section-subtitle">Moments Worth Savoring</p>
+  </div>
+  <div class="gallery-masonry">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096" alt="Coffee shop interior">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Cozy Corners</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" alt="Coffee brewing">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Fresh Brewed</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0" alt="Latte art">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Latte Art</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86" alt="Coffee and pastry">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Sweet Treats</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247" alt="Coffee beans">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Premium Beans</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31" alt="Coffee roasting">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Roasting Process</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Iced coffee">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Cold Brews</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Coffee cup">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Perfect Pour</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter fade-in">
+  <div class="newsletter-content">
+    <h2>Join The Grind</h2>
+    <p>Get exclusive offers, new menu updates, and coffee brewing tips delivered to your inbox.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<section class="contact fade-in" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Visit Us</h2>
+      <div class="contact-details">
+        <div class="detail-item">
+          <div class="detail-icon">📍</div>
+          <div class="detail-content">
+            <h4>ADDRESS</h4>
+            <p>Shop No. 12, Hauz Khas Village<br>New Delhi, 110016</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">📞</div>
+          <div class="detail-content">
+            <h4>PHONE</h4>
+            <p>+91 98110 XXXXX</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">📧</div>
+          <div class="detail-content">
+            <h4>EMAIL</h4>
+            <p>hello@thedelhigrind.com</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">🕐</div>
+          <div class="detail-content">
+            <h4>HOURS</h4>
+            <p>Mon – Fri: 8:00 AM – 10:00 PM<br>Sat – Sun: 9:00 AM – 11:00 PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="social-grid">
+        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+        <a href="#" class="social-link" aria-label="Facebook">👍</a>
+        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+        <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+    
+    <form class="contact-form" id="contactForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>THE DELHI GRIND</h3>
+      <p>Bringing world-class artisanal coffee to the heart of Delhi. From farm to cup, every sip tells a story.</p>
+      <div class="social-grid">
+        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+        <a href="#" class="social-link" aria-label="Facebook">👍</a>
+        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+      </div>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#origin">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Catering</a></li>
+        <li><a href="#">Wholesale</a></li>
+        <li><a href="#">Press Kit</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2026 The Delhi Grind. All Rights Reserved. Crafted with ❤️ in Delhi.</p>
+  </div>
+</footer>
+
+<script>
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
+});
+
+// Scroll Animations
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Stats Counter Animation
+const stats = document.querySelectorAll('.stat-number');
+const statsSection = document.querySelector('.stats');
+
+const animateStats = () => {
+  stats.forEach(stat => {
+    const target = stat.textContent.replace(/[^0-9.]/g, '');
+    const suffix = stat.textContent.replace(/[0-9.]/g, '');
+    let current = 0;
+    const increment = target / 50;
+    
+    const updateCount = () => {
+      if (current < target) {
+        current += increment;
+        stat.textContent = Math.ceil(current) + suffix;
+        requestAnimationFrame(updateCount);
+      } else {
+        stat.textContent = target + suffix;
+      }
+    };
+    updateCount();
+  });
+};
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateStats();
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+if (statsSection) statsObserver.observe(statsSection);
+
+// Logo Scroll to Top
+document.querySelector('.logo-wrapper').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Form Submissions
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Thank you for your message! We\'ll get back to you soon. ☕');
+  e.target.reset();
+});
+
+document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Welcome to The Grind! Check your email for exclusive offers. ☕');
+  e.target.reset();
+});
+
+// Image Error Handling
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function() {
+    this.style.display = 'none';
+    if (this.parentElement.classList.contains('menu-img-wrapper') || 
+        this.parentElement.classList.contains('origin-image-stack') ||
+        this.parentElement.classList.contains('gallery-item')) {
+      this.parentElement.style.background = 'linear-gradient(135deg, var(--cream), var(--coffee))';
+    }
+  });
+});
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
